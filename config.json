@@ -1,0 +1,22 @@
+{
+  "system": {
+    "name": "YF OSINT Platform",
+    "version": "2.0.0",
+    "environment": "production"
+  },
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "debug": false
+  },
+  "security": {
+    "secret_key": "yf-osint-secret-key-2025-change-in-production",
+    "token_expiry": 3600,
+    "max_login_attempts": 5
+  },
+  "modules": {
+    "cyber_modules": true,
+    "ai_modules": true,
+    "security_modules": true
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YF OSINT Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>YF OSINT</h1>
+                <span>Cyber Intelligence Platform</span>
+            </div>
+            <div class="status">
+                <span class="status-indicator online"></span>
+                <span>Online</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <nav class="sidebar">
+                <div class="nav-section">
+                    <h3>Kişi İstihbaratı</h3>
+                    <ul>
+                        <li><a href="#" onclick="loadTool('linkedin_analyzer')">LinkedIn Analizi</a></li>
+                        <li><a href="#" onclick="loadTool('email_breach_checker')">E-posta Sızıntı</a></li>
+                        <li><a href="#" onclick="loadTool('phone_location_analyzer')">Telefon Analizi</a></li>
+                        <li><a href="#" onclick="loadTool('social_cross_check')">Sosyal Medya Cross-Check</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Site İstihbaratı</h3>
+                    <ul>
+                        <li><a href="#" onclick="loadTool('subdomain_ssl_analyzer')">Subdomain Tarama</a></li>
+                        <li><a href="#" onclick="loadTool('port_service_scanner')">Port Tarama</a></li>
+                        <li><a href="#" onclick="loadTool('http_header_analyzer')">HTTP Header Analizi</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Sosyal Medya</h3>
+                    <ul>
+                        <li><a href="#" onclick="loadTool('twitter_activity_analyzer')">Twitter Analizi</a></li>
+                        <li><a href="#" onclick="loadTool('instagram_post_analyzer')">Instagram Analizi</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Content Area -->
+            <main class="content">
+                <div id="welcome" class="welcome-screen">
+                    <div class="welcome-content">
+                        <h2>YF OSINT Dashboard</h2>
+                        <p>Sol menüden bir araç seçerek başlayın</p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <span class="stat-number">9</span>
+                                <span class="stat-label">OSINT Aracı</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">Kategori</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Uptime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tool-container" class="tool-container" style="display: none;">
+                    <div class="tool-header">
+                        <h2 id="tool-title">Araç Başlığı</h2>
+                        <p id="tool-description">Araç açıklaması</p>
+                    </div>
+                    
+                    <div class="tool-form">
+                        <form id="tool-form">
+                            <div class="form-group">
+                                <label for="target">Hedef:</label>
+                                <input type="text" id="target" name="target" placeholder="Hedef girin..." required>
+                            </div>
+                            <button type="submit" class="btn-primary">Analiz Başlat</button>
+                        </form>
+                    </div>
+                    
+                    <div id="results" class="results-container" style="display: none;">
+                        <h3>Sonuçlar</h3>
+                        <div id="results-content" class="results-content"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
