@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YF OSINT Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="theme-dark">
+    <div id="app-root">
+        {% block content %}{% endblock %}
+    </div>
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

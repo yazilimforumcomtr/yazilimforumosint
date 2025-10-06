@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="app-shell">
+    <aside class="app-sidebar" id="tool-groups"></aside>
+    <main class="app-main">
+        <section class="hero">
+            <div class="hero-content">
+                <p class="badge">YF OSINT 2025</p>
+                <h1 class="hero-title">Gelişmiş Açık Kaynak İstihbarat Paneli</h1>
+                <p class="hero-subtitle">Tüm OSINT araçlarını tek bir modern web arayüzünde toplayan, yüksek performanslı ve güvenli analiz deneyimi.</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" id="explore-tools">Araçları Keşfet</button>
+                    <button class="btn btn-secondary" id="view-stats">Sistem Durumu</button>
+                </div>
+            </div>
+            <div class="hero-stats" id="hero-stats"></div>
+        </section>
+
+        <section class="tool-browser">
+            <header class="tool-browser__header">
+                <div>
+                    <h2>Analiz Araçları</h2>
+                    <p>Soldaki kategorilerden bir araç seçin veya hızlı arama kullanın.</p>
+                </div>
+                <div class="tool-browser__actions">
+                    <div class="search-box">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.71.71l.27.28v.79l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+                        <input type="search" id="tool-search" placeholder="Araç, kategori veya etiket ara..." autocomplete="off">
+                    </div>
+                </div>
+            </header>
+
+            <div class="tool-browser__grid" id="tool-grid"></div>
+        </section>
+
+        <section class="tool-detail">
+            <div class="detail-shell">
+                <div class="detail-overview" id="tool-overview"></div>
+                <div class="detail-form" id="tool-form"></div>
+            </div>
+        </section>
+
+        <section class="result-panel" id="result-panel">
+            <header class="result-panel__header">
+                <h3>Analiz Sonuçları</h3>
+                <div class="result-panel__actions">
+                    <button class="btn btn-ghost" id="copy-result">Sonucu Kopyala</button>
+                    <button class="btn btn-ghost" id="toggle-view">JSON Görünümü</button>
+                </div>
+            </header>
+            <div class="result-panel__content">
+                <pre class="result-raw" id="result-json"></pre>
+                <div class="result-pretty" id="result-pretty"></div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script id="tool-catalog-data" type="application/json">{{ tool_catalog | tojson }}</script>
+<script id="system-stats-data" type="application/json">{{ system_stats | tojson }}</script>
+{% endblock %}
